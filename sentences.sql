@@ -28,6 +28,12 @@ CREATE TABLE <name_table>
   Desc    varchar(750)  NULL,
 )
 
+--Crear una tabla temporal
+CREATE TEMPORARY TABLE <name_table> AS
+(
+	SELECT * FROM <tabla> WHERE <condition>
+)
+
 --INSERT INTO
 
 INSERT INTO <table> (<column1, column2, ....>) VALUES (<value1, value2, ....);
