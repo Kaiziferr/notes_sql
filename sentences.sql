@@ -13,6 +13,10 @@ SELECT COUNT(DISTINCT COUNTRY) FROM [Customers]
 --Contando con un alias
 SELECT COUNT(*) AS <alias> FROM (SELECT DISTINCT(<columna>) FROM <table>)
 
+-- WHERE OR AND NOT
+
+SELECT * FROM <table> WHERE <conditional>
+
 --CREATE
 
 --Crear una tabla
