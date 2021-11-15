@@ -33,10 +33,22 @@ SELECT * FROM <table_name> WHERE <column_name> IS NULL
 SELECT * FROM <table_name> WHERE <column_name> NOT NULL
 -- IN
 SELECT * FROM <table_name> WHERE <column_name> IN (value1, value2, value3, ...)
-
 SELECT * FROM <table_name> WHERE <column_name> IN (SELECT <column_name> FROM <table_name>)
-
-
+-- LIKE
+SELECT * FROM <table_name> WHERE <column_name> LIKE <pattern>
+/*
+	%	Representa cero, uno o varios caracteres
+	_	Representa un solo caracter
+	
+	Any Examples
+	
+	|'a%'		|Inicia con a									|
+	|'%a'		|Finaliza con a									|
+	|'%of%'		|Encuentra un valor que contenga la sentencia 'of' en alguna parte		|
+	|'_r%'		|Segunda posicion debe ser 'r'							|
+	|'a__%'		|Encuentra valor que inicia con 'a' y que tenga menos de tres caracteres	|
+	|'a%n'		|Inicia con 'a' y termina con 'n'						|
+*/
 
 
 
