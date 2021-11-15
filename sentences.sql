@@ -1,21 +1,47 @@
 
 -- SELECT
-
+SELECT * FROM <table>
 --Seleccionar con un limite
-SELECT * FROM <table> LIMIT 5
-
+SELECT * FROM <table_name> LIMIT 5
 --Seleccionar un elemento distinto
-SELECT DISTINCT <column1, column2, ...> FROM <TABLE>
-
+SELECT DISTINCT <column1, column2, ...> FROM <table_name>
 --Contando
-SELECT COUNT(DISTINCT COUNTRY) FROM [Customers]
-
+SELECT COUNT(DISTINCT <column>) FROM <table_name>
 --Contando con un alias
-SELECT COUNT(*) AS <alias> FROM (SELECT DISTINCT(<columna>) FROM <table>)
+SELECT COUNT(*) AS <alias> FROM (SELECT DISTINCT(<column>) FROM <table_name>)
+-- WHERE
+SELECT * FROM <table_name> WHERE <condition>
 
--- WHERE OR AND NOT
+/*	
+	|OPERATOR	|DESCRIPTION			|
+	|=		|EQUAL				|
+	|<>,!=		|NOT EQUAL			|
+	|>		|GREATER THAN			|
+	|<		|LESS THAN			|
+	|>=		|GREATER THAN OR EQUAL		|
+	|<=		|LESS THAN OR EQUAL		|
+	|BETWEEN	|				|
+	|IS NULL	|				|
+*/
 
-SELECT * FROM <table> WHERE <conditional>
+
+-- BETWEEN
+SELECT * FROM <table_name> WHERE <column_name> BETWEEN <value1> AND <value2>
+-- NULL
+SELECT * FROM <table_name> WHERE <column_name> IS NULL
+-- NOT NULL
+SELECT * FROM <table_name> WHERE <column_name> NOT NULL
+-- IN
+SELECT * FROM <table_name> WHERE <column_name> IN (value1, value2, value3, ...)
+
+SELECT * FROM <table_name> WHERE <column_name> IN (SELECT <column_name> FROM <table_name>)
+
+
+
+
+
+
+
 
 --CREATE
 
