@@ -1,14 +1,33 @@
 
 -- SELECT
 SELECT * FROM <table>
---Seleccionar con un limite
+
+-- LIMIT
 SELECT * FROM <table_name> LIMIT 5
---Seleccionar un elemento distinto
+
+-- DISTINCT
 SELECT DISTINCT <column1, column2, ...> FROM <table_name>
+
+-- AVERAGE
+SELECT AVG(<column>) AS <alias> FROM <table_name>
+
+-- COUNT
 --Contando
 SELECT COUNT(DISTINCT <column>) FROM <table_name>
 --Contando con un alias
 SELECT COUNT(*) AS <alias> FROM (SELECT DISTINCT(<column>) FROM <table_name>)
+
+-- MIN
+SELECT MIN(<column>) AS <alias> FROM <table_name>
+
+-- MAX
+SELECT MAX(<column>) AS <alias> FROM <table_name>
+
+-- SUM
+SELECT SUM(<column>) AS <alias> FROM <table_name>
+
+-- SELECT AVG(<column>) AS <alias>, MAX(<column>) AS <alias>, MIN(<column>) AS <alias>, SUM(<column>) AS <alias> FROM <table_name>
+
 -- WHERE
 SELECT * FROM <table_name> WHERE <condition>
 
@@ -27,13 +46,17 @@ SELECT * FROM <table_name> WHERE <condition>
 
 -- BETWEEN
 SELECT * FROM <table_name> WHERE <column> BETWEEN <value1> AND <value2>
+
 -- NULL
 SELECT * FROM <table_name> WHERE <column> IS NULL
+
 -- NOT NULL
 SELECT * FROM <table_name> WHERE <column> NOT NULL
+
 -- IN
 SELECT * FROM <table_name> WHERE <column> IN (value1, value2, value3, ...)
 SELECT * FROM <table_name> WHERE <column> IN (SELECT <column> FROM <table_name>)
+
 -- LIKE
 SELECT * FROM <table_name> WHERE <column> LIKE <pattern>
 /*
@@ -53,6 +76,23 @@ SELECT * FROM <table_name> WHERE <column> LIKE <pattern>
 -- ORDER BY
 SELECT <column1, column2, ...> FROM <column> WHERE <condition> ORDER BY <column1, column2, ...> ASC
 SELECT <column1, column2, ...> FROM <column> WHERE <condition> ORDER BY <column1, column2, ...> DESC
+
+-- MATH OPERATIONS
+/*
+ORDER OF OPERATIONS
+	PARENTHESES
+	EXPONENTS
+	MULTIPLICATION
+	DIVISION
+	ADDITION
+	SUBTRACTION
+*/
+SELECT <column1, column2, ...> <math_operations> AS <alias> FROM <table_name>
+
+-- GROUP BY 
+-- La sentencia GROUP BY no funciona con la clausula WHERE, por tal motivo hay que usar HAVING 
+
+-- HAVING
 
 
 
