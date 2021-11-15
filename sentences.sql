@@ -26,16 +26,16 @@ SELECT * FROM <table_name> WHERE <condition>
 
 
 -- BETWEEN
-SELECT * FROM <table_name> WHERE <column_name> BETWEEN <value1> AND <value2>
+SELECT * FROM <table_name> WHERE <column> BETWEEN <value1> AND <value2>
 -- NULL
-SELECT * FROM <table_name> WHERE <column_name> IS NULL
+SELECT * FROM <table_name> WHERE <column> IS NULL
 -- NOT NULL
-SELECT * FROM <table_name> WHERE <column_name> NOT NULL
+SELECT * FROM <table_name> WHERE <column> NOT NULL
 -- IN
-SELECT * FROM <table_name> WHERE <column_name> IN (value1, value2, value3, ...)
-SELECT * FROM <table_name> WHERE <column_name> IN (SELECT <column_name> FROM <table_name>)
+SELECT * FROM <table_name> WHERE <column> IN (value1, value2, value3, ...)
+SELECT * FROM <table_name> WHERE <column> IN (SELECT <column> FROM <table_name>)
 -- LIKE
-SELECT * FROM <table_name> WHERE <column_name> LIKE <pattern>
+SELECT * FROM <table_name> WHERE <column> LIKE <pattern>
 /*
 	%	Representa cero, uno o varios caracteres
 	_	Representa un solo caracter
@@ -50,8 +50,9 @@ SELECT * FROM <table_name> WHERE <column_name> LIKE <pattern>
 	|'a%n'		|Inicia con 'a' y termina con 'n'						|
 */
 
-
-
+-- ORDER BY
+SELECT <column1, column2, ...> FROM <column> WHERE <condition> ORDER BY <column1, column2, ...> ASC
+SELECT <column1, column2, ...> FROM <column> WHERE <condition> ORDER BY <column1, column2, ...> DESC
 
 
 
