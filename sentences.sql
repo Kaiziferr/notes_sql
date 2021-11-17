@@ -90,12 +90,15 @@ ORDER OF OPERATIONS
 SELECT <column1, column2, ...> <math_operations> AS <alias> FROM <table_name>
 
 -- GROUP BY 
-
-SELECT <funcion_agregada>, <column1, column2, ...> FROM <table_name> WHERE <condition> GROUP BY <column1>
+SELECT <funcion_agregada>, <column1, column2, ...> FROM <table_name> GROUP BY <column1>
+SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country ORDER BY COUNT(CustomerID) DESC
 
 -- HAVING
+-- La clausula HAVING se agregó a SQL porque la WHERE palabra clave no se puede usar con funciones agregadas.
 
-
+SELECT <funcion_agregada>, <column1, column2, ...> FROM <table_name> GROUP BY <column1> HAVING <funcion_agregada><condition> 
+SELECT <funcion_agregada>, <column1, column2, ...> FROM <table_name> GROUP BY <column1> HAVING COUNT(<column1>)>5
+SELECT <funcion_agregada> AS <alias>, <column1, column2, ...> FROM <table_name> GROUP BY <column1> HAVING <alias><condition>
 
 
 --CREATE
