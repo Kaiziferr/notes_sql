@@ -74,8 +74,8 @@ SELECT * FROM <table_name> WHERE <column> LIKE <pattern>
 */
 
 -- ORDER BY
-SELECT <column1, column2, ...> FROM <column> WHERE <condition> ORDER BY <column1, column2, ...> ASC
-SELECT <column1, column2, ...> FROM <column> WHERE <condition> ORDER BY <column1, column2, ...> DESC
+SELECT <column1, column2, ...> FROM <table_name> WHERE <condition> ORDER BY <column1, column2, ...> ASC
+SELECT <column1, column2, ...> FROM <table_name> WHERE <condition> ORDER BY <column1, column2, ...> DESC
 
 -- MATH OPERATIONS
 /*
@@ -90,9 +90,11 @@ ORDER OF OPERATIONS
 SELECT <column1, column2, ...> <math_operations> AS <alias> FROM <table_name>
 
 -- GROUP BY 
--- La sentencia GROUP BY no funciona con la clausula WHERE, por tal motivo hay que usar HAVING 
+
+SELECT <funcion_agregada>, <column1, column2, ...> FROM <table_name> WHERE <condition> GROUP BY <column1>
 
 -- HAVING
+
 
 
 
@@ -104,7 +106,7 @@ CREATE TABLE <name_table>
   <atributo>  <type_data> <PK, Not Null, Null>
   Id      char(10)      PRIMARY KEY,
   Brand   char(10)      NOt NULL,
-  Desc    varchar(750)  NULL,
+  Desc    varchar(750)  NULL
 )
 
 --Crear una tabla temporal
