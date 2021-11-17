@@ -99,6 +99,11 @@ SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country ORDER BY COUNT
 SELECT <funcion_agregada>, <column1, column2, ...> FROM <table_name> GROUP BY <column1> HAVING <funcion_agregada><condition> 
 SELECT <funcion_agregada>, <column1, column2, ...> FROM <table_name> GROUP BY <column1> HAVING COUNT(<column1>)>5
 SELECT <funcion_agregada> AS <alias>, <column1, column2, ...> FROM <table_name> GROUP BY <column1> HAVING <alias><condition>
+--busque los álbumes con 12 o más pistas.
+SELECT COUNT(*) FROM (select count(TrackId) from tracks group by AlbumId HAVING Count(TrackId)>11)
+--muestra el número de pedidos realizados por cada cliente (pista: se encuentra en la tabla de facturas) y ordena el resultado por el número de pedidos en orden descendente .
+select count(*), * from invoices group by CustomerId order by count(InvoiceId) desc
+--https://ucde-rey.s3.amazonaws.com/DSV1015/ChinookDatabaseSchema.png
 
 
 --CREATE
