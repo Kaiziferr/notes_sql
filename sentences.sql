@@ -128,6 +128,9 @@ CREATE TEMPORARY TABLE <name_table> AS
 INSERT INTO <table> (<column1, column2, ....>) VALUES (<value1, value2, ....);
 
 
+-- JOIN
 
+-- Seleccionar el id del pedido, id del consumidor y fecha del pedido.
+SELECT Orders.OrderID, Customers.CustomerID, Orders.OrderDate FROM Orders INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID; 
 
 
