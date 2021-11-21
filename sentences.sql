@@ -1,18 +1,23 @@
 /*
 1.	Obtener todas las columnas del consumidor
-2.	Cuantos paises distintos hay en la tabla Customer
-6. 	Obtener el nombre y la ciudad de los consumidores
+2.	Obtener el nombre y la ciudad de los consumidores
+3.	Cuantos países distintos hay en la tabla Customer
+4.	Cuente cuantos productos tienen un precio igual a 18
+5.	Cuantos productos hay con precio mayor a 15 y menor a 30
+6. 	Selecciones todos los registro, cuya identificación sea distinta a módulo 10
+7.	Cuantos proveedores  hay que sean provenientes de Reino unido (UK) y de la ciudad Manchester
+8.	Seleccione los proveedores de Japón o de España
+9. 	Cuantos consumidores no son de Alemania (Germany)
+10.	Ordene los registros de consumidores por pais y nombre, de manera ascendente y descendente respectivamente
 
-
-
-8.	Cuente cuantos productos tienen un precio igual a 18
 
 10.	Obtener el nombre del consumidor, así como la fecha e identificación del pedido.
+
 11.	selecciona todos los clientes y todos los pedidos
 12.	Selecciona todos los pedidos con información del cliente y del remitente
 13. 	Seleccionará a todos los clientes y cualquier pedido que puedan tener, ordenar los registros por medio los nombres de los consumidores.
 14.	Clientes que son de la misma ciudad
-15.	Cuantos productos hay con precio mayor a 15 y menor a 30
+15.	
 
 20.	Clasifique por tipo y sin repetición todos los clientes y proveedores
 
@@ -24,23 +29,52 @@
 
 45.	Recupere la ciudad y el país de los consumidores y proveedores que provengan de Germanía, sin registros duplicados
 
-
-
 */
 
 
--- 1
+--1 
 SELECT * FROM Customers
 
--- 2
-SELECT COUNT(DISTINCT(Country)) AS 'N_Country' FROM Customers
-SELECT COUNT(*) FROM (SELECT DISTINCT(Country) FROM Customers)
+--2
+SELECT CustomerName AS 'Name', City AS 'City' FROM Customers
 
--- 6
-SELECT CustomerName, City FROM Customers
+--3
+SELECT COUNT(DISTINCT(Country)) AS 'Country' FROM Customers
 
--- 8
-SELECT COUNT(*) AS 'Producto' FROM Products WHERE price = 18
+--4
+SELECT COUNT(*) AS 'Products' FROM Products WHERE Price = 18
+
+--5
+SELECT COUNT(*) AS 'Products' FROM Products WHERE Price > 15 AND Price < 20
+
+--6
+SELECT * FROM Customers WHERE CustomerID % 2 <> 0
+
+--7
+SELECT COUNT(*) AS 'Country' FROM Suppliers where Country = 'UK' AND City = 'Manchester'
+
+--8
+SELECT * FROM Suppliers WHERE Country = 'Japan' or Country = 'Spain'
+
+--9
+SELECT COUNT(*) FROM Customers WHERE NOT Country = 'Germany'
+
+--10
+SELECT * FROM Customers ORDER BY Country ASC, CustomerName DESC;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 -- 10
 SELECT o.OrderID, c.CustomerName, o.OrderDate  FROM Orders o INNER JOIN Customers c ON c.CustomerID = o.CustomerID
