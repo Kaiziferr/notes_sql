@@ -9,6 +9,17 @@
 8.	Seleccione los proveedores de Japón o de España
 9. 	Cuantos consumidores no son de Alemania (Germany)
 10.	Ordene los registros de consumidores por pais y nombre, de manera ascendente y descendente respectivamente
+11.	Insertar un registro en los consumidores
+12.	Insertar UN registro en consumidores con solo el id y nombre del consumidor en la columna CustomerName
+13.	Contar cuantos registros tienen null en la columna ciudad
+14.	Seleccionar los consumidores que tienen una ciudad asignada
+
+
+
+
+
+
+
 
 
 10.	Obtener el nombre del consumidor, así como la fecha e identificación del pedido.
@@ -62,13 +73,17 @@ SELECT COUNT(*) FROM Customers WHERE NOT Country = 'Germany'
 --10
 SELECT * FROM Customers ORDER BY Country ASC, CustomerName DESC;
 
+--11
+INSERT INTO Customers VALUES ('0', 'Berny', 'Steven Bernal', 'Cra 4C','Colombia', '753148629', 'Colombia')
 
+--12
+INSERT INTO Customers ('CustomerID', 'CustomerName') VALUES ('93', 'tEMPORAL')
 
+--13
+SELECT COUNT(*) AS 'Country is null' FROM Customers WHERE Country IS NULL
 
-
-
-
-
+--14
+SELECT * FROM Customers WHERE City NOT NULL
 
 
 
