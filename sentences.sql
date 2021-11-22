@@ -19,7 +19,7 @@
 18.	Seleccione el producto con el precio máximo de toda la tabla Products
 19.	Saque el promedio total y la suma total del precio de los productos
 20.	Seleccione todos los nombre de contactos que inicien con la a
-21.	
+21.	Seleccionar el nombre del consumidor y el nombre del contacto, formatéelos en una sola columna
 
 
 
@@ -119,7 +119,12 @@ SELECT AVG(Price) AS 'AVG Price', SUM(Price) AS 'SUM Price' FROM Products
 SELECT * FROM Customers WHERE ContactName LIKE 'A%'
 
 --21
+SELECT CustomerName || ' (' || ContactName || ')' AS 'Names' FROM Customers
 
+--ANEXO
+-- SELECT TRIM(" you the best. ") AS TrimmedString
+-- SELECT LTRIM("you the best.             ") AS TrimmedString
+-- SELECT RTRIM("             you the best.") AS TrimmedString
 
 
 
