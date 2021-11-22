@@ -20,6 +20,10 @@
 19.	Saque el promedio total y la suma total del precio de los productos
 20.	Seleccione todos los nombre de contactos que inicien con la a
 21.	Seleccionar el nombre del consumidor y el nombre del contacto, formatéelos en una sola columna
+22.	Seleccione el prefijo de la columna CustomerName de la tabla customer. El prefijo de tener tres caracteres.
+23. 	Seleccione el sufijo de la columna CustomerName de la tabla customer. El sufijo de tener tres caracteres.
+
+
 
 
 
@@ -121,11 +125,17 @@ SELECT * FROM Customers WHERE ContactName LIKE 'A%'
 --21
 SELECT CustomerName || ' (' || ContactName || ')' AS 'Names' FROM Customers
 
+--22
+SELECT CustomerName, SUBSTR(CustomerName, 1,3) AS 'PREFIJO' FROM Customers
+
+
+
 --ANEXO
 -- SELECT TRIM(" you the best. ") AS TrimmedString
 -- SELECT LTRIM("you the best.             ") AS TrimmedString
 -- SELECT RTRIM("             you the best.") AS TrimmedString
-
+-- SELECT UPPER(CustomerName) FROM Customers
+-- SELECT LOWER(CustomerName) FROM Customers
 
 
 
