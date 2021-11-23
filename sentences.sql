@@ -25,6 +25,10 @@
 24.	En las órdenes obtener la fecha completa, el año, el mes y el día
 25.	Seleccione la fecha actual
 26.	Seleccione la fecha y hora actual 
+27.	Seleccione cualquier consumidor que pretenezca alguno de estos paises: Germany, Mexico o France
+
+
+
 
 
 10.	Obtener el nombre del consumidor, así como la fecha e identificación del pedido.
@@ -136,7 +140,13 @@ SELECT OrderDate , STRFTIME('%Y', OrderDate) AS Year,
 STRFTIME('%m', OrderDate) AS Month,  STRFTIME('%d', OrderDate) AS Day FROM Orders
 
 --25
-SELECT DATE('now')
+SELECT DATE('now') AS 'FECHA ACTUAL'
+
+--26
+SELECT DATE('now') AS 'Fecha Actual', STRFTIME('%H %M %S %s', 'now') AS 'Tiempo Actual'
+
+--27
+SELECT * FROM Customers WHERE Country IN ('Germany', 'Mexico', 'France')
 
 
 --ANEXO
@@ -145,7 +155,15 @@ SELECT DATE('now')
 -- SELECT RTRIM("             you the best.") AS TrimmedString
 -- SELECT UPPER(CustomerName) FROM Customers
 -- SELECT LOWER(CustomerName) FROM Customers
-
+-- Cree una tabla con el gentilicio de los consumidores provenientes de Alemania, Mexico y UK
+SELECT CustomerID, CustomerName, ContactName, City,
+CASE Country
+WHEN 'Germany' THEN 'ALEMAN'
+WHEN 'Mexico' THEN 'MEXICANO'
+WHEN 'UK' THEN 'BRITANICO'
+ELSE 'Other'
+END AS 'GENTILICIO'
+FROM Customers
 
 
 
