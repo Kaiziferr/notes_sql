@@ -26,7 +26,8 @@
 25.	Seleccione la fecha actual
 26.	Seleccione la fecha y hora actual 
 27.	Seleccione cualquier consumidor que pretenezca alguno de estos paises: Germany, Mexico o France
-
+28.	Seleccione cualquier consumidor que no pretenezca alguno de estos paises: Germany, Mexico o France
+29.	Seleccionar los consumidores que tengan la misma ciudad que los proveedores
 
 
 
@@ -147,6 +148,12 @@ SELECT DATE('now') AS 'Fecha Actual', STRFTIME('%H %M %S %s', 'now') AS 'Tiempo 
 
 --27
 SELECT * FROM Customers WHERE Country IN ('Germany', 'Mexico', 'France')
+
+--28
+SELECT * FROM Customers WHERE Country NOT IN ('Germany', 'Mexico', 'France')
+
+--29
+SELECT * FROM Customers WHERE City IN (SELECT City FROM Suppliers)
 
 
 --ANEXO
