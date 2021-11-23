@@ -22,7 +22,7 @@
 21.	Seleccionar el nombre del consumidor y el nombre del contacto, formatéelos en una sola columna
 22.	Seleccione el prefijo de la columna CustomerName de la tabla customer. El prefijo de tener tres caracteres.
 23. 	Seleccione el sufijo de la columna CustomerName de la tabla customer. El sufijo de tener tres caracteres.
-
+24.	En las órdenes obtener la fecha completa, el año, el mes y el día
 
 
 
@@ -128,7 +128,12 @@ SELECT CustomerName || ' (' || ContactName || ')' AS 'Names' FROM Customers
 --22
 SELECT CustomerName, SUBSTR(CustomerName, 1,3) AS 'PREFIJO' FROM Customers
 
+--23
+SELECT CustomerName, SUBSTR(CustomerName, -3) AS 'SUFIJO' FROM Customers
 
+--24
+SELECT OrderDate , STRFTIME('%Y', OrderDate) AS Year,  
+STRFTIME('%m', OrderDate) AS Month,  STRFTIME('%d', OrderDate) AS Day FROM Orders
 
 --ANEXO
 -- SELECT TRIM(" you the best. ") AS TrimmedString
