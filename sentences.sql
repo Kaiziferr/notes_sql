@@ -28,7 +28,14 @@
 27.	Seleccione cualquier consumidor que pretenezca alguno de estos paises: Germany, Mexico o France
 28.	Seleccione cualquier consumidor que no pretenezca alguno de estos paises: Germany, Mexico o France
 29.	Seleccionar los consumidores que tengan la misma ciudad que los proveedores
-
+30.	Seleccione los productos que tengan un precio entre 20 y 40
+31.	Seleccione los productos que no tengan un precio entre 20 y 40
+32.	Seleccione los productos que tengan un precio entre 9 y 20. Además, que el id del producto no sea 1,2 y 3.
+33.	Seleccione los productos entre los productos cuyo nombres son Ikura y Maxilaku respectivamente. Ordenelos por nombre.
+34.	Cuente cuantas ordenes hay entre 1996-07-08 y 1996-07-19	
+35.	Cuente cuantas ordenes hay en el año 1997
+36.	Obtenga el nombre del consumidor y la dirección. A esta última adiciónele el código postal, la ciudad y el país.
+37.	Selecciones las órdenes  del consumidor Around the Horn. Obtenga las columnas id y la fecha de la orden, asi como el nombre del consumidor
 
 
 
@@ -154,6 +161,31 @@ SELECT * FROM Customers WHERE Country NOT IN ('Germany', 'Mexico', 'France')
 
 --29
 SELECT * FROM Customers WHERE City IN (SELECT City FROM Suppliers)
+
+-- 30
+SELECT * FROM Products WHERE Price BETWEEN 20 AND 40
+
+--31
+SELECT * FROM Products WHERE Price NOT BETWEEN 20 AND 40
+
+--32
+SELECT * FROM Products WHERE Price BETWEEN 20 AND 40 IN (1,2,3)
+
+--33
+SELECT * FROM Products WHERE ProductName BETWEEN 'Ikura' AND 'Maxilaku' ORDER BY ProductName
+
+--34
+SELECT COUNT(*) AS 'PRODUCTOS POR FECHA' FROM Orders WHERE OrderDate BETWEEN '1996-07-08' AND '1996-07-19'
+
+--35
+SELECT COUNT(*) AS 'Productos de 1997' FROM (SELECT OrderDate, STRFTIME('%Y', OrderDate) AS Year FROM Orders) WHERE Year = '1997'
+
+--36
+SELECT CustomerName, Address + ', ' + PostalCode + ' ' + City + ', ' + Country AS Address
+FROM Customers;
+
+--37
+SELECT o.OrderID, o.OrderDate, c.CustomerName FROM Customers c, Orders o WHERE c.CustomerName = 'Around the Horn' AND c.CustomerID = o.CustomerID
 
 
 --ANEXO
