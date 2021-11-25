@@ -47,7 +47,6 @@
 	el país. No importa la redundancia
 45.	Seleccione el id, nombre y el nombre de contacto y proveedores. Además, en una columna llamada Info adicione la dirección, la ciudad, el código postal y 
 	el país. Elimine redundancias
-
 46.	Obtenga los nombres de los proveedores y consumidores de Alemania, en una sola tabla, sin especificar su distinción y sin redundancias
 
 
