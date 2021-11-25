@@ -37,13 +37,18 @@
 36.	Obtenga el nombre del consumidor y la dirección. A esta última adiciónele el código postal, la ciudad y el país.
 37.	Selecciones las órdenes  del consumidor Around the Horn. Obtenga las columnas id y la fecha de la orden, asi como el nombre del consumidor
 38.	Encuentre el id y la fecha de la orden, y el nombre del consumidor de  aquellos clientes que tengan órdenes asociadas
-39.	Seleccione los consumidores y empleados que se relacionen por la orden. De esta consulta es necesario obtener el id de la orden, el nombre del consumidor y el nombre completo del empleado
+39.	Seleccione los consumidores y empleados que se relacionen por la orden. De esta consulta es necesario obtener el id de la orden, el nombre 
+	del consumidor y el nombre completo del empleado
 40.	Selecciones los consumidores que pueden o no tener órdenes asociadas
 41.	Selecciones el id y nombre de los consumidores que no tengan órdenes asociadas
-51.	
+42.	Seleccione parejas de consumidores que sean de la misma ciudad
+43.	Seleccione parejas de consumidores que sean de la misma ciudad, eliminando las parejas repetidas
+44.	Seleccione el id, nombre y el nombre de contacto y proveedores. Además, en una columna llamada Info adicione la dirección, la ciudad, el código postal y 
+	el país. No importa la redundancia
+45.	Seleccione el id, nombre y el nombre de contacto y proveedores. Además, en una columna llamada Info adicione la dirección, la ciudad, el código postal y 
+	el país. Elimine redundancias
 
-
-
+46.	Obtenga los nombres de los proveedores y consumidores de Alemania, en una sola tabla, sin especificar su distinción y sin redundancias
 
 
 
@@ -173,7 +178,7 @@ SELECT * FROM Customers WHERE Country NOT IN ('Germany', 'Mexico', 'France')
 --29
 SELECT * FROM Customers WHERE City IN (SELECT City FROM Suppliers)
 
--- 30
+--30
 SELECT * FROM Products WHERE Price BETWEEN 20 AND 40
 
 --31
@@ -211,10 +216,34 @@ SELECT * FROM Customers c LEFT JOIN Orders o ON c.CustomerID = o.CustomerID
 --41
 SELECT c.CustomerID, c.CustomerName FROM Customers c LEFT JOIN Orders o ON c.CustomerID = o.CustomerID WHERE OrderID IS NULL
 
+--42
+SELECT c1.CustomerID AS id_c1, c2.CustomerID AS id_c2, 
+c1.CustomerName AS 'Nombre 1 Consumidor', 
+c2.CustomerName AS 'Nombre 2 Consumidor', 
+c1.City FROM Customers c1, Customers c2 WHERE c1.CustomerID<>c2.CustomerID AND c1.City = c2.City
 
+--43
+SELECT c1.CustomerID AS id_c1, c2.CustomerID AS id_c2, 
+c1.CustomerName AS 'Nombre 1 Consumidor', 
+c2.CustomerName AS 'Nombre 2 Consumidor', 
+c1.City FROM Customers c1, Customers c2 WHERE c1.CustomerID<>c2.CustomerID AND c1.City = c2.City AND c1.CustomerID > c2.CustomerID
 
+--44
+SELECT c.CustomerID AS 'Id', c.CustomerName AS 'Name', c.ContactName, c.Address||' '||c.City||' '||c.PostalCode||' '||c.Country AS 'Info' FROM Customers c
+UNION ALL
+SELECT s.SupplierID AS 'Id', s.SupplierName AS 'Name', s.ContactName, s.Address||' '||s.City||' '||s.PostalCode||' '||s.Country AS 'Info' FROM Suppliers s
 
+--45
+SELECT c.CustomerID AS 'Id', c.CustomerName AS 'Name', c.ContactName, c.Address||' '||c.City||' '||c.PostalCode||' '||c.Country AS 'Info' FROM Customers c
+UNION
+SELECT s.SupplierID AS 'Id', s.SupplierName AS 'Name', s.ContactName, s.Address||' '||s.City||' '||s.PostalCode||' '||s.Country AS 'Info' FROM Suppliers s
 
+--46
+SELECT c.CustomerName AS 'Name' FROM Customers c
+WHERE c.Country='Germany'
+UNION
+SELECT s.SupplierName AS 'Name' FROM Suppliers s
+WHERE s.Country='Germany'
 
 
 --ANEXO
