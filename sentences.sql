@@ -36,6 +36,17 @@
 35.	Cuente cuantas ordenes hay en el año 1997
 36.	Obtenga el nombre del consumidor y la dirección. A esta última adiciónele el código postal, la ciudad y el país.
 37.	Selecciones las órdenes  del consumidor Around the Horn. Obtenga las columnas id y la fecha de la orden, asi como el nombre del consumidor
+38.	Encuentre el id y la fecha de la orden, y el nombre del consumidor de  aquellos clientes que tengan órdenes asociadas
+39.	Seleccione los consumidores y empleados que se relacionen por la orden. De esta consulta es necesario obtener el id de la orden, el nombre del consumidor y el nombre completo del empleado
+40.	Selecciones los consumidores que pueden o no tener órdenes asociadas
+41.	Selecciones el id y nombre de los consumidores que no tengan órdenes asociadas
+51.	
+
+
+
+
+
+
 
 
 
@@ -187,6 +198,24 @@ FROM Customers;
 --37
 SELECT o.OrderID, o.OrderDate, c.CustomerName FROM Customers c, Orders o WHERE c.CustomerName = 'Around the Horn' AND c.CustomerID = o.CustomerID
 
+--38
+SELECT o.OrderID, o.OrderDate, c.CustomerName FROM Orders o INNER JOIN Customers c ON o.CustomerID = c.CustomerID 
+
+--39
+SELECT o.OrderID, c.CustomerName, e.FirstName || ' ' || e.LastName AS FULL_NAME FROM ((ORDERS o INNER JOIN Customers c ON o.CustomerID = c.CustomerID)
+INNER JOIN Employees e ON o.EmployeeID = e.EmployeeID)
+
+--40
+SELECT * FROM Customers c LEFT JOIN Orders o ON c.CustomerID = o.CustomerID
+
+--41
+SELECT c.CustomerID, c.CustomerName FROM Customers c LEFT JOIN Orders o ON c.CustomerID = o.CustomerID WHERE OrderID IS NULL
+
+
+
+
+
+
 
 --ANEXO
 -- SELECT TRIM(" you the best. ") AS TrimmedString
@@ -205,9 +234,16 @@ END AS 'GENTILICIO'
 FROM Customers
 
 
+SELECT column_name(s)
+FROM table1
+RIGHT JOIN table2
+ON table1.column_name = table2.column_name;
 
-
-
+SELECT column_name(s)
+FROM table1
+FULL OUTER JOIN table2
+ON table1.column_name = table2.column_name
+WHERE condition;
 
 -- 10
 SELECT o.OrderID, c.CustomerName, o.OrderDate  FROM Orders o INNER JOIN Customers c ON c.CustomerID = o.CustomerID
