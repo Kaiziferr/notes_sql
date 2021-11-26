@@ -48,29 +48,14 @@
 45.	Seleccione el id, nombre y el nombre de contacto y proveedores. Además, en una columna llamada Info adicione la dirección, la ciudad, el código postal y 
 	el país. Elimine redundancias
 46.	Obtenga los nombres de los proveedores y consumidores de Alemania, en una sola tabla, sin especificar su distinción y sin redundancias
+47.	Haga un conteo de los consumidores por países
+48.	Haga un conteo de los consumidores por países. Esta consulta ordénela de forma ascendente por el total de consumidores
+49.	Encuentre cuantas órdenes están asociadas a un cargador
+50.	Incluya solo países con más de 5 clientes
+51.	Enumera los empleados que han registrado más de 10 pedidos. Ordene de forma descendente
+52.	Obtenga el id y el total de órdenes de los empleados, que hayan obtenido más de diez órdenes
+53.	Obtenga el apellido y numero de ordenes de los empleados con apellido "Davolio" o "Fuller" si han registrado más de 25 pedidos:
 
-
-
-
-
-
-10.	Obtener el nombre del consumidor, así como la fecha e identificación del pedido.
-
-11.	selecciona todos los clientes y todos los pedidos
-12.	Selecciona todos los pedidos con información del cliente y del remitente
-13. 	Seleccionará a todos los clientes y cualquier pedido que puedan tener, ordenar los registros por medio los nombres de los consumidores.
-14.	Clientes que son de la misma ciudad
-15.	
-
-20.	Clasifique por tipo y sin repetición todos los clientes y proveedores
-
-25.	Recupere la ciudad de la tabla consumidor y proveedor, no importa los duplicados.
-
-30.	Obtenga los registros de la ciudad, el nombre del contacto y la dirección,  del consumidor y del proveedor respectivamente, los cuales deben
-	de estar ordenado por ciudad y sin registros repetidos
-
-
-45.	Recupere la ciudad y el país de los consumidores y proveedores que provengan de Germanía, sin registros duplicados
 
 */
 
@@ -244,6 +229,40 @@ UNION
 SELECT s.SupplierName AS 'Name' FROM Suppliers s
 WHERE s.Country='Germany'
 
+--47
+SELECT Country, COUNT(CustomerID) AS 'Consumidores x pais' FROM Customers GROUP BY Country
+
+--48
+SELECT Country, COUNT(CustomerID) AS 'Consumidores_Pais' FROM Customers GROUP BY Country ORDER BY Consumidores_Pais ASC
+
+--49
+SELECT s.ShipperName, COUNT(o.OrderID) AS NumberOfOrders FROM Orders o LEFT JOIN Shippers s ON o.ShipperID = s.ShipperID
+GROUP BY ShipperName
+
+--50
+SELECT Country FROM Customers GROUP BY Country HAVING COUNT(CustomerID)>5
+
+--51
+SELECT  e.EmployeeID, COUNT(o.OrderID) AS 'OrdersTotal'
+FROM Orders o INNER JOIN Employees e ON o.EmployeeID = e.EmployeeID GROUP BY o.EmployeeID 
+
+--52
+SELECT  e.EmployeeID, COUNT(o.OrderID) AS 'OrdersTotal'
+FROM Orders o INNER JOIN Employees e ON o.EmployeeID = e.EmployeeID GROUP BY o.EmployeeID HAVING COUNT('OrdersTotal')>10 ORDER BY OrdersTotal DESC
+
+--53
+SELECT e.EmployeeID, e.LastName, COUNT(o.OrderID) AS "Orders Total" FROM Orders o INNER JOIN Employees e ON o.EmployeeID = e.EmployeeID 
+WHERE e.LastName = "Davolio" OR e.LastName = "Fuller" GROUP BY o.EmployeeID HAVING "Orders Total" > 25
+
+
+
+
+
+
+
+
+
+
 
 --ANEXO
 -- SELECT TRIM(" you the best. ") AS TrimmedString
@@ -311,6 +330,7 @@ SELECT City FROM Customers UNION SELECT City FROM Suppliers ORDER BY City
 --45
 SELECT City, Country FROM Customers WHERE Country = 'Germany' UNION SELECT City, Country FROM Suppliers WHERE Country = 'Germany'
 
+--
 
 --Pendiente
 -- Wildcards
