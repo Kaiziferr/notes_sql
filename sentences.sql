@@ -55,8 +55,10 @@
 51.	Enumera los empleados que han registrado más de 10 pedidos. Ordene de forma descendente
 52.	Obtenga el id y el total de órdenes de los empleados, que hayan obtenido más de diez órdenes
 53.	Obtenga el apellido y numero de ordenes de los empleados con apellido "Davolio" o "Fuller" si han registrado más de 25 pedidos:
-
-
+54.	En la tabla de OrderDetails asigne una columna donde se agregue valores de límite superior para cuando halla un registro con una cantidad mayor o igual a 35, 
+	en caso contrario asigne un valor de límite inferior 
+55.	Ordene los clientes por ciudad. Sin embargo, si la ciudad es NULL, ordene por país
+56	
 */
 
 
@@ -254,8 +256,21 @@ FROM Orders o INNER JOIN Employees e ON o.EmployeeID = e.EmployeeID GROUP BY o.E
 SELECT e.EmployeeID, e.LastName, COUNT(o.OrderID) AS "Orders Total" FROM Orders o INNER JOIN Employees e ON o.EmployeeID = e.EmployeeID 
 WHERE e.LastName = "Davolio" OR e.LastName = "Fuller" GROUP BY o.EmployeeID HAVING "Orders Total" > 25
 
+--54
+SELECT OrderID, Quantity,
+CASE
+    WHEN Quantity >= 35 THEN 'UPPER LIMIT'
+    ELSE 'LOWER LIMIT'
+END AS "LIMIT"
+FROM OrderDetails
 
-
+--55
+FROM Customers
+ORDER BY
+(CASE
+    WHEN City IS NULL THEN Country
+    ELSE City
+END);
 
 
 
