@@ -54,6 +54,62 @@ viii. Tip =	 	user_id    : 537  |  business_id: 3979
 ix. User = 		id 		   : 10000		
 x. Friend = 	user_id	   : 11 		
 xi. Elite_years = user_id  : 2780 		
+Data Scientist Role Play: Profiling and Analyzing the Yelp Dataset Coursera Worksheet
+
+This is a 2-part assignment. In the first part, you are asked a series of questions that will help you profile and understand the data just like a data scientist would. For this first part of the assignment, you will be assessed both on the correctness of your findings, as well as the code you used to arrive at your answer. You will be graded on how easy your code is to read, so remember to use proper formatting and comments where necessary.
+
+In the second part of the assignment, you are asked to come up with your own inferences and analysis of the data for a particular research question you want to answer. You will be required to prepare the dataset for the analysis you choose to do. As with the first part, you will be graded, in part, on how easy your code is to read, so use proper formatting and comments to illustrate and communicate your intent as required.
+
+For both parts of this assignment, use this "worksheet." It provides all the questions you are being asked, and your job will be to transfer your answers and SQL coding where indicated into this worksheet so that your peers can review your work. You should be able to use any Text Editor (Windows Notepad, Apple TextEdit, Notepad ++, Sublime Text, etc.) to copy and paste your answers. If you are going to use Word or some other page layout application, just be careful to make sure your answers and code are lined appropriately.
+In this case, you may want to save as a PDF to ensure your formatting remains intact for you reviewer.
+
+
+
+Part 1: Yelp Dataset Profiling and Understanding
+
+1. Profile the data by finding the total number of records for each of the tables below:
+	
+i. Attribute table =    10000  	SELECT COUNT(*) AS 'total' FROM attribute
+ii. Business table =    10000 	SELECT COUNT(*) AS 'total' FROM business
+iii. Category table =   10000 	SELECT COUNT(*) AS 'total' FROM category
+iv. Checkin table =     10000	SELECT COUNT(*) AS 'total' FROM checkin
+v. elite_years table =  10000	SELECT COUNT(*) AS 'total' FROM elite_years
+vi. friend table =      10000	SELECT COUNT(*) AS 'total' FROM friend
+vii. hours table =      10000	SELECT COUNT(*) AS 'total' FROM hours
+viii. photo table =     10000 	SELECT COUNT(*) AS 'total' FROM photo
+ix. review table =      10000	SELECT COUNT(*) AS 'total' FROM review
+x. tip table =          10000 	SELECT COUNT(*) AS 'total' FROM tip
+xi. user table =        10000	SELECT COUNT(*) AS 'total' FROM user
+	
+---------------------------------- SQL ----------------------------------
+
+i. 		SELECT COUNT(*) AS 'total' FROM attribute
+ii. 	SELECT COUNT(*) AS 'total' FROM business
+iii.	SELECT COUNT(*) AS 'total' FROM category
+iv. 	SELECT COUNT(*) AS 'total' FROM checkin
+v.  	SELECT COUNT(*) AS 'total' FROM elite_years
+vi. 	SELECT COUNT(*) AS 'total' FROM friend
+vii.	SELECT COUNT(*) AS 'total' FROM hours
+viii. 	SELECT COUNT(*) AS 'total' FROM photo
+ix.		SELECT COUNT(*) AS 'total' FROM review
+x. 		SELECT COUNT(*) AS 'total' FROM tip
+xi. 	SELECT COUNT(*) AS 'total' FROM user
+
+
+
+2. Find the total distinct records by either the foreign key or primary key for each table. If two foreign keys are listed in the table, please specify which foreign key.
+
+i. Business = 	id: 10000				 		
+ii. Hours =		business_id: 1562 		
+iii. Category =	business_Id: 2643 		
+iv. Attribute =	business_Id: 1115 		
+v. Review =		id 		   :10000 | business_id: 8090 | user_id: 9581		
+vi. Checkin = 	business_id: 493 		
+vii Photo	=	id		   : 10000 | business_id : 6493 
+viii. Tip =	 	user_id    : 537  |  business_id: 3979
+ix. User = 		id 		   : 10000		
+x. Friend = 	user_id	   : 11 		
+xi. Elite_years = user_id  : 2780 		
 
 Note: Primary Keys are denoted in the ER-Diagram with a yellow key icon.	
 
@@ -369,13 +425,17 @@ ORDER BY stars  DESC
 2. Group business based on the ones that are open and the ones that are closed. What differences can you find between the ones that are still open and the ones that are closed? List at least two differences and the SQL code you used to arrive at your answer.
 		
 i. Difference 1:
-         
+
+There are more businesses open than closed
          
 ii. Difference 2:
-         
-         
-         
+
+open businesseshave more reviews and stars than closed businesses
+
 SQL code used for analysis:
+
+SELECT COUNT(*) AS 'TOTAL', SUM(stars) as 'SUM OF STAR',
+SUM(review_count) AS 'SUM OF REVIEW', is_open FROM business GROUP BY is_open
 
 	
 	
@@ -384,12 +444,49 @@ SQL code used for analysis:
 Ideas for analysis include: Parsing out keywords and business attributes for sentiment analysis, clustering businesses to find commonalities or anomalies between them, predicting the overall star rating for a business, predicting the number of fans a user will have, and so on. These are just a few examples to get you started, so feel free to be creative and come up with your own problem you want to solve. Provide answers, in-line, to all of the following:
 	
 i. Indicate the type of analysis you chose to do:
-         
+
+783 / 5000
+Resultados de traducción
+The factor that influences the number of fans in users
+
          
 ii. Write 1-2 brief paragraphs on the type of data you will need for your analysis and why you chose that data:
+I need quantitative variables, to analyze whether a large number influences the average number of stars. For this purpose, look at the number of fans, the number of reviews, the type of review: useful, funny and cool. I discovered that the only variable that induces a probable relationship between the popularity of each user is that the reviews are useful.
                            
                   
 iii. Output of your finished dataset:
-         
+ +------+--------------+------------+--------+-------+------+---------------+
+| fans | review_count | name       | useful | funny | cool | average_stars |
++------+--------------+------------+--------+-------+------+---------------+
+|   80 |          178 | Nieves     |   1091 |   774 |  940 |          3.64 |
+|   49 |          196 | Dottsy     |   2654 |   989 | 2989 |          3.42 |
+|   41 |          503 | Dixie      |     21 |    32 |   23 |          3.19 |
+|   38 |          904 | Ed         |    141 |    88 |   85 |           3.6 |
+|   32 |          449 | Pinky      |     43 |    15 |   14 |          3.75 |
+|   29 |          279 | Annie      |   1402 |  1111 | 1212 |           4.0 |
+|   27 |           86 | Christina  |     16 |     5 |    3 |          4.69 |
+|   27 |           86 | Christina  |     16 |     5 |    3 |          4.69 |
+|   25 |          676 | Crissy     |      4 |     1 |    1 |          3.31 |
+|   18 |          240 | Kyle       |    129 |    33 |   22 |          3.82 |
+|   16 |          257 | AJA        |     75 |    16 |   11 |          3.86 |
+|   15 |          259 | Jean       |    748 |    22 |   38 |          3.91 |
+|   14 |          345 | Dave       |     16 |     6 |    6 |          3.69 |
+|   12 |          418 | Mark       |     38 |    49 |   16 |           4.0 |
+|   11 |          564 | Danny      |     38 |    10 |   12 |          3.46 |
+|   10 |          174 | Andrea     |     72 |     2 |   38 |          3.87 |
+|   10 |           90 | Christophe |    371 |    39 |   21 |          4.01 |
+|    6 |           44 | Alaina     |    154 |    16 |    2 |           4.0 |
+|    6 |          109 | Jade       |     21 |    13 |    4 |          3.36 |
+|    6 |          122 | Char       |      2 |     3 |    2 |          3.82 |
+|    5 |           10 | James      |      6 |     0 |    3 |           4.2 |
+|    5 |           92 | LA         |    199 |    15 |    2 |          3.79 |
+|    4 |          198 | W          |   6974 |  6033 | 4746 |          3.88 |
+|    4 |          167 | Isabelle   |      4 |     7 |    1 |          3.83 |
+|    3 |           71 | Sanaz      |     17 |     5 |    6 |          3.77 |
++------+--------------+------------+--------+-------+------+---------------+        
          
 iv. Provide the SQL code you used to create your final dataset:
+
+SELECT u.fans, u.review_count, u.name, u.useful, u.funny, u.cool, u.average_stars
+FROM review r INNER JOIN user u
+ON r.user_id = u.id ORDER BY u.fans DESC
