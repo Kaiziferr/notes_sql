@@ -58,7 +58,9 @@
 54.	En la tabla de OrderDetails asigne una columna donde se agregue valores de límite superior para cuando halla un registro con una cantidad mayor o igual a 35, 
 	en caso contrario asigne un valor de límite inferior 
 55.	Ordene los clientes por ciudad. Sin embargo, si la ciudad es NULL, ordene por país
-56	
+56	Enumera los proveedores con un precio de producto inferior a 20
+
+
 */
 
 
@@ -272,6 +274,10 @@ ORDER BY
     ELSE City
 END);
 
+--56
+SELECT s.SupplierName
+FROM Suppliers s
+WHERE EXISTS (SELECT p.ProductName FROM Products p WHERE p.SupplierID = s.SupplierID AND p.Price < 20)
 
 
 
