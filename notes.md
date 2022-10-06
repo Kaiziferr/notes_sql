@@ -16,3 +16,13 @@ Show Version
 ```
  SELECT version();
  ```
+
+Ejecutar el comando anterior
+```
+\g
+```
+
+Time Permite ver el tiempo en que la consulta demora en ejecutarse.
+```
+\timing
+```
