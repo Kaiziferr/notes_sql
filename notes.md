@@ -26,3 +26,8 @@ Time Permite ver el tiempo en que la consulta demora en ejecutarse.
 ```
 \timing
 ```
+
+Show file config
+```
+show config_file;
+```
