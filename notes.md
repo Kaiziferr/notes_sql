@@ -26,6 +26,10 @@ Listar la base de datos
 \dt
 ```
 
+Mirar los roles
+```
+\dg
+```
 
 
 Time Permite ver el tiempo en que la consulta demora en ejecutarse.
