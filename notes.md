@@ -75,3 +75,11 @@ Permitir que el usuario creado se loguee
 ALTER ROLE USUARIO_CONSULTA WITH LOGIN;
 ```
 
+Asignar atributos o permisos
+- tener encuenta el comando \h CREATE ROLE
+```sql
+ALTER ROLE USUARIO_CONSULTA WITH LOGIN;
+```
+
+
+
