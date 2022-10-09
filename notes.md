@@ -25,6 +25,10 @@ Listar la base de datos
 ```
 \dt
 ```
+Salir de la consola
+```
+\q
+```
 
 Mirar los roles
 ```
