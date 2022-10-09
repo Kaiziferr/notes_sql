@@ -48,6 +48,7 @@ Crear la partición
 1. Crear tabla.
 2. Buscar la parte para indicar que es una tabla de partición (pesta{a general).
 3. Pestaña partición agregar el campo. Ejmp -> Rango fechas
+4. Nota: buscar como se hace dinamicamente.
 ```sql
 INSERT INTO public.bitacora_viajes(
 	id_viaje, fecha)
@@ -60,6 +61,10 @@ CREATE TABLE bitacora_viajes201001 PARTITION OF bitacora_viajes
 FOR VALUES FROM ('2010-01-01') TO ('2019-01-31');
 ```
 
+Crear un Rol
+```sql
+CREATE ROLE USUARIO_CONSULTA
+```
 
 
 
