@@ -70,5 +70,8 @@ Crear un Rol
 CREATE ROLE USUARIO_CONSULTA;
 ```
 
-
+Permitir que el usuario creado se loguee
+```sql
+ALTER ROLE USUARIO_CONSULTA WITH LOGIN;
+```
 
