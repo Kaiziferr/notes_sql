@@ -69,6 +69,13 @@ CREATE TABLE bitacora_viajes201001 PARTITION OF bitacora_viajes
 FOR VALUES FROM ('2010-01-01') TO ('2019-01-31');
 ```
 # Rol
+
+PG-ADMIN
+
+-  Login/Group Roles => Crea el rol
+-  En una tabla particular click derecho propiedades modificar el dueño de la tabla
+-  En tables click derecho, la opción GRant wizard configuras los permisos de las tablas
+
 Visualizar roles
 ```sh
 \du
@@ -94,6 +101,13 @@ Asignar Contraseña
 ALTER ROLE usuario_consulta WITH PASSWORD <password>
 ```
 Eliminar role
-```
+```sql
 DROP ROLE usuario_consulta;
+```
+Asignar permisos
+```sql
+Ejemplo
+- permisos son select, update, insert
+
+GRANT SELECT, UPDATE, INSERT ON TABLE public."<table>" TO <user>;
 ```
