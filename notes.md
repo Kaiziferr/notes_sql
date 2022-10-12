@@ -91,5 +91,9 @@ ALTER ROLE USUARIO_CONSULTA WITH SUPERUSER;
 ```
 Asignar Contraseña
 ```
-ALTER ROLE usuario_consulta WITH PASSWORD '@User123'
+ALTER ROLE usuario_consulta WITH PASSWORD <password>
+```
+Eliminar role
+```
+DROP ROLE usuario_consulta;
 ```
