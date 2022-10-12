@@ -111,3 +111,7 @@ Ejemplo
 
 GRANT SELECT, UPDATE, INSERT ON TABLE public."<table>" TO <user>;
 ```
+FOREIGN KEY
+```sql
+
+```
