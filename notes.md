@@ -68,6 +68,11 @@ FOR VALUES FROM ('2010-01-01') TO ('2019-01-31');
 CREATE TABLE bitacora_viajes201001 PARTITION OF bitacora_viajes
 FOR VALUES FROM ('2010-01-01') TO ('2019-01-31');
 ```
+# Rol
+Visualizar roles
+```sh
+\du
+```
 
 Crear un Rol
 ```sql
@@ -82,7 +87,7 @@ ALTER ROLE USUARIO_CONSULTA WITH LOGIN;
 Asignar atributos o permisos
 - tener encuenta el comando \h CREATE ROLE
 ```sql
-ALTER ROLE USUARIO_CONSULTA WITH LOGIN;
+ALTER ROLE USUARIO_CONSULTA WITH SUPERUSER;
 ```
 
 
