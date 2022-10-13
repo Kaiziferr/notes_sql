@@ -44,3 +44,9 @@ SELECT * FROM
 ( SELECT * FROM platzi.alumnos
  WHERE tutor_id = 30
 ) as alumnos_profesor_30;
+
+--7
+SELECT * FROM 
+( SELECT * FROM platzi.alumnos
+ WHERE tutor_id != 30
+) as alumnos_profesor_no30;
