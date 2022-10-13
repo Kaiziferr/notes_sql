@@ -35,3 +35,7 @@ OFFSET(
 	FROM platzi.alumnos
 );
 
+-- 5
+SELECT * FROM platzi.alumnos
+WHERE id IN (10, 80, 150, 300, 600, 800);
+
