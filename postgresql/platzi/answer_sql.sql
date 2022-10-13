@@ -28,3 +28,10 @@ where a1.colegiatura <= a2.colegiatura
 SELECT DISTINCT colegiatura
 FROM platzi.alumnos as a1 order by 
 colegiatura desc OFFSET 1;
+-- 4
+SELECT * FROM platzi.alumnos
+OFFSET(
+	SELECT COUNT(*)/2
+	FROM platzi.alumnos
+);
+
