@@ -39,3 +39,8 @@ OFFSET(
 SELECT * FROM platzi.alumnos
 WHERE id IN (10, 80, 150, 300, 600, 800);
 
+-- 6
+SELECT * FROM 
+( SELECT * FROM platzi.alumnos
+ WHERE tutor_id = 30
+) as alumnos_profesor_30;
