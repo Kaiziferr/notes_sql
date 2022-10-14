@@ -60,3 +60,6 @@ SELECT DATE_PART('YEAR', fecha_incorporacion) AS anio_incorporacion, DATE_PART('
 
 --10
 SELECT DATE_PART('HOUR', fecha_incorporacion) as hora_incorporacion, DATE_PART('MINUTE', fecha_incorporacion) AS minutos_incorporacion, DATE_PART('SECOND', fecha_incorporacion) AS segundos_incorporacion FROM platzi.alumnos;
+
+--11
+SELECT * FROM platzi.alumnos WHERE EXTRACT(YEAR FROM fecha_incorporacion) = 2019;
