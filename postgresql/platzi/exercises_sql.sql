@@ -8,4 +8,5 @@
 7. Optener alumnos que no sean del profesor con el id 30
 8. Extraer las fecha de ingreso del alumno.
 9. Optener el años, mes y día de la incorporación del estudiante.
+10. Optener la hora, minutos y segundo de la fecha de incorporacion.
 */
