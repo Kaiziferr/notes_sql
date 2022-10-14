@@ -50,3 +50,7 @@ SELECT * FROM
 ( SELECT * FROM platzi.alumnos
  WHERE tutor_id != 30
 ) as alumnos_profesor_no30;
+
+--8
+SELECT EXTRACT (YEAR FROM fecha_incorporacion) AS anio_incorporacion FROM platzi.alumnos;
+SELECT DATE_PART('YEAR', fecha_incorporacion) AS anio_incorporacion FROM platzi.alumnos;
