@@ -11,4 +11,5 @@
 10. Obtener la hora, minutos y segundo de la fecha de incorporación.
 11. Seleccionar los alumnos cuyo año de ingreso es el 2019.
 12. Concatenes los valores de cada registro
+13. Comprobar si un número esta en um ramgo.
 */
