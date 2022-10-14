@@ -57,3 +57,6 @@ SELECT DATE_PART('YEAR', fecha_incorporacion) AS anio_incorporacion FROM platzi.
 
 --9
 SELECT DATE_PART('YEAR', fecha_incorporacion) AS anio_incorporacion, DATE_PART('MONTh', fecha_incorporacion) AS mes_incorporacion, DATE_PART('DAY', fecha_incorporacion) AS dia_incorporacion FROM platzi.alumnos;
+
+--10
+SELECT DATE_PART('HOUR', fecha_incorporacion) as hora_incorporacion, DATE_PART('MINUTE', fecha_incorporacion) AS minutos_incorporacion, DATE_PART('SECOND', fecha_incorporacion) AS segundos_incorporacion FROM platzi.alumnos;
