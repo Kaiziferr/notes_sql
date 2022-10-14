@@ -65,3 +65,6 @@ SELECT DATE_PART('HOUR', fecha_incorporacion) as hora_incorporacion, DATE_PART('
 SELECT * FROM platzi.alumnos WHERE EXTRACT(YEAR FROM fecha_incorporacion) = 2019;
 SELECT * FROM platzi.alumnos WHERE DATE_PART('YEAR', fecha_ingreso) = 2019;
 SELECT * FROM ( SELECT *, DATE_PART('YEAR', fecha_incorporacion) AS anio_incorporacion FROM platzi.alumnos) AS alumnos_con_anio WHERE anio_incorporacion = 2019;
+
+--12
+SELECT (platzi.alumnos.*)::text FROM platzi.alumnos;
