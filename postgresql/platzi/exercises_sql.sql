@@ -12,4 +12,6 @@
 11. Seleccionar los alumnos cuyo año de ingreso es el 2019.
 12. Concatenes los valores de cada registro
 13. Comprobar si un número esta en um ramgo.
+14. Indicar si dos rangos se sobrelapan.
+15. Identificar la intercepción entre todos los profesores y todas las carreras
 */
