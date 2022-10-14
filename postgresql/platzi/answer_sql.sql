@@ -68,3 +68,19 @@ SELECT * FROM ( SELECT *, DATE_PART('YEAR', fecha_incorporacion) AS anio_incorpo
 
 --12
 SELECT (platzi.alumnos.*)::text FROM platzi.alumnos;
+
+--13
+SELECT int4range(1, 20) @> 3;
+
+--14
+SELECT numrange(11.1, 19.9) && numrange(20.0, 30.0);
+
+--15
+SELECT numrange(
+	(SELECT MIN(tutor_id) FROM platzi.alumnos),
+	(SELECT MAX(tutor_id) FROM platzi.alumnos)
+) * 
+numrange(
+	(SELECT MIN(carrera_id) FROM platzi.alumnos),
+	(SELECT MAX(carrera_id) FROM platzi.alumnos)
+); 
