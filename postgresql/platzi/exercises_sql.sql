@@ -9,4 +9,5 @@
 8. Extraer las fecha de ingreso del alumno.
 9. Optener el años, mes y día de la incorporación del estudiante.
 10. Optener la hora, minutos y segundo de la fecha de incorporacion.
+11. Seleccionar los alumnos cuyo año de ingreso es el 2019.
 */
