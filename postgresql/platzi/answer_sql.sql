@@ -102,3 +102,18 @@ INNER JOIN platzi.alumnos AS t
 ON a.tutor_id = t.id 
 GROUP BY tutor
 ORDER BY alumnos_por_tutor DESC;
+
+--18
+SELECT carrera_id, COUNT(*) AS numero_alumnos
+FROM platzi.alumnos
+GROUP BY carrera_id
+ORDER BY numero_alumnos DESC;
+
+
+SELECT  c.carrera, count(*) AS numero_alumnos  
+FROM platzi.alumnos AS a
+INNER JOIN platzi.carreras AS c
+ON a.carrera_id = c.id
+GROUP BY c.carrera
+ORDER BY numero_alumnos DESC;
+;
