@@ -16,4 +16,5 @@
 15. Identificar la intercepción entre todos los profesores y todas las carreras
 16. Encuentre los alumnos que brinden tutorías.
 17. Contar el numero de alumnos que tiene cada tutor.
+18 el numero de de alumnos por carrera
 */
