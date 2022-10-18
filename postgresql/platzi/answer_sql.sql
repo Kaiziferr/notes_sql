@@ -117,3 +117,7 @@ ON a.carrera_id = c.id
 GROUP BY c.carrera
 ORDER BY numero_alumnos DESC;
 ;
+--19
+SELECT *,
+AVG(colegiatura) OVER (PARTITION by carrera_id) 
+FROM platzi.alumnos;
