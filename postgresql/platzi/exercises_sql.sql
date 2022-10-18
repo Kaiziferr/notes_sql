@@ -18,4 +18,5 @@
 17. Contar el numero de alumnos que tiene cada tutor.
 18. el numero de de alumnos por carrera
 19. Optener por el promedio de las colegiaturas por partición.
+20. Generar series en un rango.
 */
