@@ -19,4 +19,6 @@
 18. el numero de de alumnos por carrera
 19. Optener por el promedio de las colegiaturas por partición.
 20. Generar series en un rango.
+21, Generar una rango de fechas por cada 10 horas
+22
 */
