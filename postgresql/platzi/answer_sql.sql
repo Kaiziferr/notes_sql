@@ -131,3 +131,8 @@ FROM generate_series(5,1, -2);
 
 SELECT *
 FROM generate_series(1,8,2);
+
+--21
+SELECT * 
+FROM generate_series('2020-09-01 00:00:00'::timestamp, 
+					'2020-09-04 12:00:00', '10 hours')
