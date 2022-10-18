@@ -121,3 +121,13 @@ ORDER BY numero_alumnos DESC;
 SELECT *,
 AVG(colegiatura) OVER (PARTITION by carrera_id) 
 FROM platzi.alumnos;
+
+--20
+SELECT *
+FROM generate_series(1,8);
+
+SELECT *
+FROM generate_series(5,1, -2);
+
+SELECT *
+FROM generate_series(1,8,2);
