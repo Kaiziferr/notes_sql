@@ -4,7 +4,7 @@
 3.	Cuantos países distintos hay en la tabla consumidor.
 4.	Cuente cuantos productos tienen un precio igual a 18.
 5.	Cuantos productos hay con precio mayor a 15 y menor a 30.
-6. 	Selecciones todos los registro, cuya identificación sea distinta a módulo 10.
+6. 	Selecciones todos los registro de los consumidores, cuya identificación sea distinta a módulo 10.  ---
 7.	Cuantos proveedores hay que sean provenientes de Reino unido (UK) y de la ciudad Manchester.
 8.	Seleccione los proveedores de Japón o de España.
 9. 	Cuantos consumidores no son de Alemania (Germany).
@@ -65,22 +65,22 @@
 
 
 --1 
-SELECT * FROM Customers
+SELECT * FROM CUSTOMERS;
 
 --2
-SELECT CustomerName AS 'Name', City AS 'City' FROM Customers
+SELECT CUSTOMERNAME AS "NAME", CITY AS "CITY" FROM CUSTOMERS;
 
 --3
-SELECT COUNT(DISTINCT(Country)) AS 'Country' FROM Customers
+SELECT COUNT(DISTINCT(COUNTRY)) AS "COUNT_COUNTRY" FROM CUSTOMERS;
 
 --4
-SELECT COUNT(*) AS 'Products' FROM Products WHERE Price = 18
+SELECT COUNT(*) AS "PRODUCTS_PRICE_18" FROM PRODUCTS WHERE PRICE = 18;
 
 --5
-SELECT COUNT(*) AS 'Products' FROM Products WHERE Price > 15 AND Price < 20
+SELECT COUNT(*) AS "PRODUCTS_PRICE_15_30" FROM PRODUCTS WHERE PRICE > 15 AND PRICE < 30;
 
 --6
-SELECT * FROM Customers WHERE CustomerID % 10 <> 0
+SELECT * FROM CUSTOMERS WHERE CUSTOMERID % 10 <> 0;
 
 --7
 SELECT COUNT(*) AS 'Number Country' FROM Suppliers where Country = 'UK' AND City = 'Manchester'
