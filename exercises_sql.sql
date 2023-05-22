@@ -10,7 +10,7 @@
 9. 	Cuantos consumidores no son de Alemania (Germany).
 10.	Ordene los registros de consumidores por pais y nombre, de manera ascendente y descendente respectivamente.
 11.	Insertar un registro en los consumidores.
-12.	Insertar UN registro en consumidores con solo el id y nombre del consumidor en la columna CustomerName.
+12.	Insertar Un registro en consumidores con solo el id y nombre del consumidor en la columna CustomerName.
 13.	Contar cuantos registros tienen null en la columna pais.
 14.	Seleccionar los consumidores que tienen un pais asignado.
 15.     Actualice el registro n(Cualquiera), modificando los valores.
@@ -18,7 +18,7 @@
 17. 	Seleccione el producto con el precio mínimo de toda la tabla Products.
 18.	Seleccione el producto con el precio máximo de toda la tabla Products.
 19.	Saque el promedio total y la suma total del precio de los productos.
-20.	Seleccione todos los nombreS de contactos de los consumidores que inicien con la a.
+20.	Seleccione todos los nombres de contactos de los consumidores que inicien con la a.
 21.	Seleccionar el nombre del consumidor y el nombre del contacto, formatéelos en una sola columna.
 22.	Seleccione el prefijo de la columna CustomerName de la tabla customer. El prefijo de tener tres caracteres.
 23. 	Seleccione el sufijo de la columna CustomerName de la tabla customer. El sufijo de tener tres caracteres.
