@@ -11,7 +11,7 @@
 10.	Ordene los registros de consumidores por pais y nombre, de manera ascendente y descendente respectivamente.
 11.	Insertar un registro en los consumidores.
 12.	Insertar UN registro en consumidores con solo el id y nombre del consumidor en la columna CustomerName.
-13.	Contar cuantos registros tienen null en la columna ciudad.
+13.	Contar cuantos registros tienen null en la columna pais.
 14.	Seleccionar los consumidores que tienen una ciudad asignada.
 15.     Actualice el registro n(Cualquiera), modificando los valores.
 16.	Elimine los registros de los consumidores, cuyo pais es Alemania.
