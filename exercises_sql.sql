@@ -174,7 +174,7 @@ SELECT * FROM Products WHERE Price BETWEEN 20 AND 40
 SELECT * FROM Products WHERE Price NOT BETWEEN 20 AND 40
 
 --32
-SELECT * FROM Products WHERE Price BETWEEN 20 AND 40 IN (1,2,3)
+SELECT *  FROM [Products] WHERE Price BETWEEN 9 AND 20 AND CategoryID NOT IN (1, 2, 3);
 
 --33
 SELECT * FROM Products WHERE ProductName BETWEEN 'Ikura' AND 'Maxilaku' ORDER BY ProductName
