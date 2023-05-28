@@ -186,6 +186,8 @@ SELECT COUNT(*) AS 'PRODUCTOS POR FECHA' FROM Orders WHERE OrderDate BETWEEN '19
 SELECT COUNT(*) AS 'Productos de 1997' FROM (SELECT OrderDate, STRFTIME('%Y', OrderDate) AS Year FROM Orders) WHERE Year = '1997'
 
 --36
+SELECT CustomerName, ''|| Address ||" "||PostalCode||" "|| City||" "|| Country||" "||'' AS 'INFORMATION' FROM [Customers]
+
 SELECT CustomerName, Address + ', ' + PostalCode + ' ' + City + ', ' + Country AS Address
 FROM Customers;
 
