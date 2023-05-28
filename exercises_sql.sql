@@ -20,7 +20,7 @@
 19.	Saque el promedio total y la suma total del precio de los productos.
 20.	Seleccione todos los nombres de contactos de los consumidores que inicien con la a.
 21.	Seleccionar el nombre del consumidor y el nombre del contacto, formatéelos en una sola columna.
-22.	Seleccione el prefijo de la columna CustomerName de la tabla customer. El prefijo de tener tres caracteres. ---
+22.	Seleccione el prefijo de la columna CustomerName de la tabla customer. El prefijo de tener tres caracteres. 
 23. 	Seleccione el sufijo de la columna CustomerName de la tabla customer. El sufijo de tener tres caracteres.
 24.	En las órdenes obtener la fecha completa, el año, el mes y el día
 25.	Seleccione la fecha actual
@@ -35,7 +35,7 @@
 34.	Cuente cuantas ordenes hay entre 1996-07-08 y 1996-07-19	
 35.	Cuente cuantas ordenes hay en el año 1997
 36.	Obtenga el nombre del consumidor y la dirección. A esta última adiciónele el código postal, la ciudad y el país.
-37.	Selecciones las órdenes  del consumidor Around the Horn. Obtenga las columnas id y la fecha de la orden, asi como el nombre del consumidor
+37.	Selecciones las órdenes  del consumidor Around the Horn. Obtenga las columnas id y la fecha de la orden, asi como el nombre del consumidor ---
 38.	Encuentre el id y la fecha de la orden, y el nombre del consumidor de  aquellos clientes que tengan órdenes asociadas
 39.	Seleccione los consumidores y empleados que se relacionen por la orden. De esta consulta es necesario obtener el id de la orden, el nombre 
 	del consumidor y el nombre completo del empleado
