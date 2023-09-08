@@ -59,7 +59,7 @@
 	en caso contrario asigne un valor de límite inferior 
 55.	Ordene los clientes por ciudad. Sin embargo, si la ciudad es NULL, ordene por país
 56	Enumera los proveedores con un precio de producto inferior a 20
-
+57. 	Crear una simple base de datos.
 
 */
 
@@ -359,8 +359,8 @@ SELECT City, Country FROM Customers WHERE Country = 'Germany' UNION SELECT City,
 --Pendiente
 -- Wildcards
 
-
-
+-- 57 
+CREATE DATABASE EJMPLO;
 
 
 
