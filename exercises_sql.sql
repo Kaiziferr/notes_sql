@@ -61,6 +61,7 @@
 56	Enumera los proveedores con un precio de producto inferior a 20
 57. 	Crear una simple base de datos.
 58. 	Crear una tabla con una pk y propiedades con la identidad Identity 
+59. 	Crear una tabla con una pk compuesta
 */
 
 
@@ -378,8 +379,16 @@ CREATE TABLE Pacient2(
 	CONSTRAINT PK_idpaciente PRIMARY KEY (idpaciente)
 )
 
+-- 59
+CREATE TABLE HistoriaPaciente(
+	
+	idHistoria int,
+	idPaciente int,
+	idMedico int,
 
+	CONSTRAINT idHistoria PRIMARY KEY (idHistoria, idPaciente, idMedico)
 
+)
 
 
 
