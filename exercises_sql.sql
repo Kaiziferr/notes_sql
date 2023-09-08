@@ -60,7 +60,7 @@
 55.	Ordene los clientes por ciudad. Sin embargo, si la ciudad es NULL, ordene por país
 56	Enumera los proveedores con un precio de producto inferior a 20
 57. 	Crear una simple base de datos.
-
+58. 	Crear una tabla con una pk y propiedades con la identidad Identity 
 */
 
 
@@ -362,7 +362,21 @@ SELECT City, Country FROM Customers WHERE Country = 'Germany' UNION SELECT City,
 -- 57 
 CREATE DATABASE EJMPLO;
 
+--58
+CREATE TABLE Pacient2(
+	idpaciente int IDENTITY(1,1) NOT NULL,
+	nombre varchar(50) NOT NULL,
+	apellido varchar(50) NULL,
+	fnacimiento date NULL,
+	domicilio varchar(50) NULL,
+	idpais char(3) NULL,
+	telefono varchar(20) NULL,
+	email varchar(30) NULL,
+	observacion varchar (1000) NULL,
+	fechaAlta datetime NOT NULL,
 
+	CONSTRAINT PK_idpaciente PRIMARY KEY (idpaciente)
+)
 
 
 
