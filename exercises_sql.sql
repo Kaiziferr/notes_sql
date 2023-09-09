@@ -62,6 +62,8 @@
 57. 	Crear una simple base de datos.
 58. 	Crear una tabla con una pk y propiedades con la identidad Identity 
 59. 	Crear una tabla con una pk compuesta
+
+60.	Crear un tipo de datos de un usuario
 */
 
 
@@ -390,7 +392,8 @@ CREATE TABLE HistoriaPaciente(
 
 )
 
-
+--60
+CREATE TYPE medico FROM INT NOT NULL
 
 
 
@@ -414,6 +417,9 @@ CREATE TEMPORARY TABLE <name_table> AS
 (
 	SELECT * FROM <tabla> WHERE <condition>
 )
+
+
+	
 
 --INSERT INTO
 
