@@ -162,12 +162,6 @@ SELECT DATE('now') AS 'FECHA ACTUAL'
 --26
 SELECT DATE('now') AS 'Fecha Actual', STRFTIME('%H %M %S %s', 'now') AS 'Tiempo Actual'
 
---27
-SELECT * FROM Customers WHERE Country IN ('Germany', 'Mexico', 'France')
-
---28
-SELECT * FROM Customers WHERE Country NOT IN ('Germany', 'Mexico', 'France')
-
 --29
 SELECT * FROM Customers WHERE City IN (SELECT City FROM Suppliers)
 
