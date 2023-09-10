@@ -64,6 +64,8 @@
 60.	Crear un tipo de datos de un usuario
 */
 
+https://es.wikipedia.org/wiki/Sentencia_JOIN_en_SQL
+
 
 --1 
 SELECT * FROM CUSTOMERS;
