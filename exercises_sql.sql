@@ -33,7 +33,7 @@
 34.	Cuente cuantas ordenes hay entre 1996-07-08 y 1996-07-19	
 35.	Cuente cuantas ordenes hay en el año 1997
 36.	Obtenga el nombre del consumidor y la dirección. A esta última adiciónele el código postal, la ciudad y el país.
-37.	Selecciones las órdenes  del consumidor Around the Horn. Obtenga las columnas id y la fecha de la orden, asi como el nombre del consumidor ---
+37.	Selecciones las órdenes  del consumidor Around the Horn. Obtenga las columnas id y la fecha de la orden, asi como el nombre del consumidor 
 38.	Encuentre el id y la fecha de la orden, y el nombre del consumidor de  aquellos clientes que tengan órdenes asociadas
 39.	Seleccione los consumidores y empleados que se relacionen por la orden. De esta consulta es necesario obtener el id de la orden, el nombre 
 	del consumidor y el nombre completo del empleado
@@ -41,15 +41,15 @@
 41.	Selecciones el id y nombre de los consumidores que no tengan órdenes asociadas
 42.	Seleccione parejas de consumidores que sean de la misma ciudad
 43.	Seleccione parejas de consumidores que sean de la misma ciudad, eliminando las parejas repetidas
-44.	Seleccione el id, nombre y el nombre de contacto y proveedores. Además, en una columna llamada Info adicione la dirección, la ciudad, el código postal y 
-	el país. No importa la redundancia
-45.	Seleccione el id, nombre y el nombre de contacto y proveedores. Además, en una columna llamada Info adicione la dirección, la ciudad, el código postal y 
-	el país. Elimine redundancias
+44.	Se requiere el id, nombre y nombre contacto del consumidor y el proveedor, de todos los registros, sin importar la redundancia. En una columna llamada info adicione la dirección, 
+	la ciudad, el código postal y el país. No importa la redundancia, solo usando las dos tablas mencionadas.
+45.	Se requiere el id, nombre y nombre contacto del consumidor y el proveedor, de todos los registros, sin importar la redundancia. En una columna llamada info adicione la dirección, 
+	la ciudad, el código postal y el país. No importa la redundancia, solo usando las dos tablas mencionadas.
 46.	Obtenga los nombres de los proveedores y consumidores de Alemania, en una sola tabla, sin especificar su distinción y sin redundancias
 47.	Haga un conteo de los consumidores por países
 48.	Haga un conteo de los consumidores por países. Esta consulta ordénela de forma ascendente por el total de consumidores
-49.	Encuentre cuantas órdenes están asociadas a un cargador
-50.	Incluya solo países con más de 5 clientes
+49.	Encuentre cuantas órdenes están asociadas a un Shippers, obtener el nombre y el telefono.
+50.	Incluya solo países con más de 5 clientes -----
 51.	Enumera los empleados que han registrado más de 10 pedidos. Ordene de forma descendente
 52.	Obtenga el id y el total de órdenes de los empleados, que hayan obtenido más de diez órdenes
 53.	Obtenga el apellido y numero de ordenes de los empleados con apellido "Davolio" o "Fuller" si han registrado más de 25 pedidos:
@@ -194,14 +194,14 @@ SELECT o.OrderID, o.OrderDate, c.CustomerName FROM Customers c, Orders o WHERE c
 SELECT o.OrderID, o.OrderDate, c.CustomerName FROM Orders o INNER JOIN Customers c ON o.CustomerID = c.CustomerID 
 
 --39
-SELECT o.OrderID, c.CustomerName, e.FirstName || ' ' || e.LastName AS FULL_NAME FROM ((ORDERS o INNER JOIN Customers c ON o.CustomerID = c.CustomerID)
-INNER JOIN Employees e ON o.EmployeeID = e.EmployeeID)
+SELECT o.OrderID, c.CustomerName, e.FirstName ||" "|| e.LastName AS "Nombre Completo"  FROM Customers c INNER JOIN Orders o ON c.CustomerID = o.CustomerID INNER JOIN Employees e ON o.EmployeeID = e.EmployeeID
 
 --40
 SELECT * FROM Customers c LEFT JOIN Orders o ON c.CustomerID = o.CustomerID
 
 --41
-SELECT c.CustomerID, c.CustomerName FROM Customers c LEFT JOIN Orders o ON c.CustomerID = o.CustomerID WHERE OrderID IS NULL
+SELECT c.CustomerID, c.CustomerName FROM Customers c LEFT JOIN Orders o ON c.CustomerID = o.CustomerID WHERE OrderID IS NULL;
+SELECT c.CustomerID, c.CustomerName FROM Customers c LEFT JOIN Orders o ON c.CustomerID = o.CustomerID WHERE o.CustomerID IS NULL;
 
 --42
 SELECT c1.CustomerID AS id_c1, c2.CustomerID AS id_c2, 
@@ -233,18 +233,18 @@ SELECT s.SupplierName AS 'Name' FROM Suppliers s
 WHERE s.Country='Germany'
 
 --47
-SELECT Country, COUNT(CustomerID) AS 'Consumidores x pais' FROM Customers GROUP BY Country
+SELECT COUNT(*) AS "Count by Country", Country FROM [Customers] GROUP BY Country
 
 --48
-SELECT Country, COUNT(CustomerID) AS 'Consumidores_Pais' FROM Customers GROUP BY Country ORDER BY Consumidores_Pais ASC
+SELECT Country, COUNT(CustomerID) AS 'Consumidores_Pais' FROM Customers GROUP BY Country ORDER BY Consumidores_Pais ASC;
+SELECT * FROM (SELECT COUNT(*) AS "Count by Country", Country FROM [Customers] GROUP BY Country) ORDER BY "Count by Country" DESC;	
 
 --49
-SELECT s.ShipperName, COUNT(o.OrderID) AS NumberOfOrders FROM Orders o LEFT JOIN Shippers s ON o.ShipperID = s.ShipperID
-GROUP BY ShipperName
+SELECT COUNT(*) AS "N Orders", s.ShipperName, s.Phone FROM [Orders] o INNER JOIN Shippers s ON o.ShipperID = s.ShipperID GROUP BY ShipperName
 
 --50
-SELECT Country FROM Customers GROUP BY Country HAVING COUNT(CustomerID)>5
-
+SELECT Country FROM [Customers] GROUP BY Country HAVING COUNT(*) > 5; 
+	
 --51
 SELECT  e.EmployeeID, COUNT(o.OrderID) AS 'OrdersTotal'
 FROM Orders o INNER JOIN Employees e ON o.EmployeeID = e.EmployeeID GROUP BY o.EmployeeID 
