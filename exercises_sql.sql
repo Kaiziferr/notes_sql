@@ -6,8 +6,8 @@
 5.	Cuantos productos hay con precio mayor a 15 y menor a 30.
 6. 	Selecciones todos los registro de los consumidores, cuya identificación sea distinta a módulo 10.  ---
 7.	Cuantos proveedores hay que sean provenientes de Reino unido (UK) y de la ciudad Manchester.
-8.	Seleccione los proveedores de Japón o de España.
-9. 	Cuantos consumidores no son de Alemania (Germany).
+8.	Seleccione cualquier consumidor que pretenezca alguno de estos paises: Germany, Mexico o France
+9.	Seleccione cualquier consumidor que no pretenezca alguno de estos paises: Germany, Mexico o France
 10.	Ordene los registros de consumidores por pais y nombre, de manera ascendente y descendente respectivamente.
 11.	Insertar un registro en los consumidores.
 12.	Insertar Un registro en consumidores con solo el id y nombre del consumidor en la columna CustomerName.
@@ -25,8 +25,9 @@
 24.	En las órdenes obtener la fecha completa, el año, el mes y el día
 25.	Seleccione la fecha actual
 26.	Seleccione la fecha y hora actual 
-27.	Seleccione cualquier consumidor que pretenezca alguno de estos paises: Germany, Mexico o France
-28.	Seleccione cualquier consumidor que no pretenezca alguno de estos paises: Germany, Mexico o France
+
+
+
 29.	Seleccionar los consumidores que tengan la misma ciudad que los proveedores
 30.	Seleccione los productos que tengan un precio entre 20 y 40
 31.	Seleccione los productos que no tengan un precio entre 20 y 40
