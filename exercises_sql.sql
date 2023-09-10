@@ -25,9 +25,6 @@
 24.	En las órdenes obtener la fecha completa, el año, el mes y el día
 25.	Seleccione la fecha actual
 26.	Seleccione la fecha y hora actual 
-
-
-
 29.	Seleccionar los consumidores que tengan la misma ciudad que los proveedores
 30.	Seleccione los productos que tengan un precio entre 20 y 40
 31.	Seleccione los productos que no tengan un precio entre 20 y 40
@@ -190,6 +187,7 @@ SELECT CustomerName, Address + ', ' + PostalCode + ' ' + City + ', ' + Country A
 FROM Customers;
 
 --37
+SELECT c.CustomerName, o.OrderID, o.OrderDate FROM (SELECT * FROM [Customers] where CustomerName = "Around the Horn") c, Orders o WHERE c.CustomerID = o.CustomerID; --eFICIENTE
 SELECT o.OrderID, o.OrderDate, c.CustomerName FROM Customers c, Orders o WHERE c.CustomerName = 'Around the Horn' AND c.CustomerID = o.CustomerID
 
 --38
