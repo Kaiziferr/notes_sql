@@ -86,10 +86,10 @@ SELECT COUNT(*) AS "PRODUCTS_PRICE_15_30" FROM PRODUCTS WHERE PRICE > 15 AND PRI
 SELECT * FROM CUSTOMERS WHERE CUSTOMERID % 10 <> 0;
 
 --7
-SELECT COUNT(*) AS 'Number Country' FROM Suppliers where Country = 'UK' AND City = 'Manchester'
+SELECT * FROM [Customers] WHERE Country IN ("Germany", "Mexico", "France");
 
 --8
-SELECT * FROM Suppliers WHERE Country = 'Japan' or Country = 'Spain'
+SELECT * FROM [Customers] WHERE Country NOT IN ("Germany", "Mexico", "France");
 
 --9
 SELECT COUNT(*) FROM Customers WHERE NOT Country = 'Germany'
