@@ -49,7 +49,7 @@
 47.	Haga un conteo de los consumidores por países
 48.	Haga un conteo de los consumidores por países. Esta consulta ordénela de forma ascendente por el total de consumidores
 49.	Encuentre cuantas órdenes están asociadas a un Shippers, obtener el nombre y el telefono.
-50.	Incluya solo países con más de 5 clientes -----
+50.	Incluya solo países con más de 5 clientes con la instrucción **HAVING**
 51.	Enumera los empleados que han registrado más de 10 pedidos. Ordene de forma descendente
 52.	Obtenga el id y el total de órdenes de los empleados, que hayan obtenido más de diez órdenes
 53.	Obtenga el apellido y numero de ordenes de los empleados con apellido "Davolio" o "Fuller" si han registrado más de 25 pedidos:
