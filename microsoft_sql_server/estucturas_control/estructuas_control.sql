@@ -43,3 +43,10 @@ SET @semaforo = (
 )
 
 PRINT @semaforo;
+
+
+SELECT *, (CASE
+				WHEN idTurno = 1 THEN 'RED'
+				WHEN idTurno = 3 THEN 'YELLOW'
+				WHEN idTurno = 5 THEN 'GREEN'
+			END) AS 'SEMAFOROP' FROM TURNO;
