@@ -30,19 +30,20 @@ WHILE @contador <= 10
 	END
 
 --CASE
-DECLARE @valor int = 15;
-
+DECLARE @valor INT;
 DECLARE @semaforo VARCHAR(10);
 
+SET @valor = 50;
+
 SET @semaforo = (
-	CASE 
-		WHEN @valor <= 10 THEN 'RED'
-		WHEN @valor > 10 AND @valor <= 20 THEN 'YELLOW'
-		WHEN @valor > 20 THEN 'GREEN'
+	CASE WHEN @valor <= 10 THEN 'RED'
+		 WHEN @valor > 10 AND @valor <=20 THEN 'YELLOW'
+		 WHEN @valor > 20 AND @valor <= 30 THEN 'GREEN'
+		 ELSE 'BURNED'
 	END
 )
 
-PRINT @semaforo;
+PRINT @semaforo
 
 
 SELECT *, (CASE
