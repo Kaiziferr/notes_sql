@@ -29,6 +29,19 @@ WHILE @contador <= 10
 		SET @contador = @contador + 1
 	END
 
+DECLARE @contador int = 0;
+
+WHILE @contador < 10
+	BEGIN
+		PRINT @contador
+		SET @contador = @contador + 1
+		IF @contador = 3
+			BREAK
+	END
+
+PRINT @contador
+PRINT 'SALE POR QUE NO CUMPLIO LA CONDICION'
+
 --CASE
 DECLARE @valor INT;
 DECLARE @semaforo VARCHAR(10);
