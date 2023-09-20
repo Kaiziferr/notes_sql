@@ -70,3 +70,38 @@ ELSE
 	BEGIN
 		PRINT 'El turno no existe'
 	END
+
+
+/*
+SELECT * FROM CentroMedico.dbo.Medico;
+SELECT * FROM CentroMedico.dbo.MedicoEspecialidad;
+SELECT * FROM CentroMedico.dbo.Especialidad;
+*/
+
+EXEC IM_MEDICO 'Camilo', 'Otawa', 1, 'Disponible de 6 en adelante'
+
+ALTER PROC IM_MEDICO (
+	@nombre varchar(50),
+	@apellido varchar(20),
+	@idespecialidad int,
+	@descripcion varchar(50)
+)
+
+AS
+
+IF  EXISTS(SELECT * FROM CentroMedico.dbo.Especialidad WHERE idEspecialidad = @idespecialidad)
+	BEGIN
+		INSERT INTO CentroMedico.dbo.Medico(Nombre, Apellido) VALUES (@nombre, @apellido)
+
+		DECLARE @idAuxMedico INT;
+		SET @idAuxMedico = @@IDENTITY
+
+		INSERT INTO CentroMedico.dbo.MedicoEspecialidad (idMedico, idEspecialidad, Descripcion) 
+		VALUES (@idAuxMedico, @idespecialidad, @descripcion)
+	END
+ELSE
+	BEGIN
+		PRINT 'ERROR'
+	END
+
+
