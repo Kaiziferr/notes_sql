@@ -74,3 +74,11 @@ SELECT CAST(@moneyy AS INT) AS MONEDA;
 
 
 SELECT CAST(idPaciente as money) AS FLOAT FROM CentroMedico.dbo.Paciente;
+
+--12 Convertir la fecha a los siguientes formatos a char 20 caracteres, al formato 112
+DECLARE @fechita DATETIME;
+SET @fechita = GETDATE();
+PRINT @fechita
+PRINT CONVERT(CHAR(20), @fechita)
+PRINT CONVERT(CHAR(20), @fechita, 112)
+PRINT CONVERT(CHAR(20), @fechita, 104)
