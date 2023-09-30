@@ -39,3 +39,40 @@ WHERE P.idPaciente = @idpaciente;
 
 
 EXEC SELECT_TurnoPaciente 7;
+
+---------------------------------------------------------------------------------------
+ALTER PROC SEL_HistoriaPaciente(
+	@idpaciente INT
+)
+
+AS 
+
+SET NOCOUNT ON
+
+IF EXISTS(
+	SELECT * FROM CentroMedico.dbo.Paciente P
+	INNER JOIN CentroMedico.dbo.HistoriaPaciente HP
+	ON P.idPaciente = HP.idPaciente
+	INNER JOIN CentroMedico.dbo.Historia H
+	ON H.idHistoria = HP.idHistoria
+	INNER JOIN CentroMedico.dbo.MedicoEspecialidad ME
+	ON HP.idMedico = ME.idMedico
+	INNER JOIN CentroMedico.dbo.Medico M
+	ON ME.idMedico = M.idMedico
+	WHERE P.idPaciente = @idpaciente)
+
+	SELECT * FROM CentroMedico.dbo.Paciente P
+	INNER JOIN CentroMedico.dbo.HistoriaPaciente HP
+	ON P.idPaciente = HP.idPaciente
+	INNER JOIN CentroMedico.dbo.Historia H
+	ON H.idHistoria = HP.idHistoria
+	INNER JOIN CentroMedico.dbo.MedicoEspecialidad ME
+	ON HP.idMedico = ME.idMedico
+	INNER JOIN CentroMedico.dbo.Medico M
+	ON ME.idMedico = M.idMedico
+	WHERE P.idPaciente = @idpaciente;
+ELSE
+	PRINT 'NO EXISTE HISTORIA MEDICA PARA EL PACIENTE'
+
+
+EXEC SEL_HistoriaPaciente 12
