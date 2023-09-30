@@ -76,3 +76,20 @@ ELSE
 
 
 EXEC SEL_HistoriaPaciente 12
+
+
+---------------------------------------------------------------------------
+
+ALTER PROC SELECT_ESPECIALIDADESMEDICAS
+
+AS
+
+SET NOCOUNT ON
+
+IF EXISTS(SELECT * FROM CentroMedico.dbo.Especialidad)
+	SELECT * FROM CentroMedico.dbo.Especialidad
+ELSE
+	SELECT 0 AS RESULTADO
+
+
+EXEC SELECT_ESPECIALIDADESMEDICAS
