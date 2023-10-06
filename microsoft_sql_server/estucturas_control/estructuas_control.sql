@@ -64,3 +64,18 @@ SELECT *, (CASE
 				WHEN idTurno = 3 THEN 'YELLOW'
 				WHEN idTurno = 5 THEN 'GREEN'
 			END) AS 'SEMAFOROP' FROM TURNO;
+
+
+-- Recorre una tabla
+DECLARE @i INT, @total INT;
+SET @i = 1;
+SET @total = (SELECT COUNT(*) FROM CentroMedico.dbo.Paciente);
+PRINT @total; 
+
+WHILE @i <= 20
+BEGIN
+	DECLARE @name VARCHAR(50);
+	SET @name = (SELECT nombre FROM CentroMedico.dbo.Paciente where idPaciente = @i);
+	PRINT @name 
+	SET @i = @i + 1
+END
