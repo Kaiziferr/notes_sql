@@ -92,9 +92,6 @@ SELECT * FROM [Customers] WHERE Country IN ("Germany", "Mexico", "France");
 SELECT * FROM [Customers] WHERE Country NOT IN ("Germany", "Mexico", "France");
 
 --9
-SELECT COUNT(*) FROM Customers WHERE NOT Country = 'Germany'
-
---10
 SELECT * FROM Customers ORDER BY Country ASC, CustomerName DESC;
 
 --11
